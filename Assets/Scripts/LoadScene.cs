@@ -11,6 +11,7 @@ public class LoadScene : MonoBehaviour {
 	//-------------------------------------------------------------------------
 	private void SetInit()
 	{
+		enabled = true; // magic global to wait on FB before rendering
 		Debug.Log ("FB Init Done");
 	}
 	
@@ -29,6 +30,7 @@ public class LoadScene : MonoBehaviour {
 
 	public void loadScene(string scene) {
 		if (scene.Equals ("login")) {
+			FB.Logout();
 			StartCoroutine ("Logout");
 		}
 
