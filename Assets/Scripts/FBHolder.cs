@@ -79,6 +79,9 @@ public class FBHolder : MonoBehaviour {
 			// Get profile picture
 			FB.API (Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, DealWithProfilePicture);
 			// Get username
+
+			// change scene
+			Application.LoadLevel("user");
 		}
 		else
 		{
