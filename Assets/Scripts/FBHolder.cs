@@ -13,6 +13,11 @@ public class FBHolder : MonoBehaviour {
 	void Awake()
 	{
 		FB.Init (SetInit, OnHideUnity);
+
+		// preserve these GameObjects across scene changes
+		DontDestroyOnLoad (UIFBAvatar);
+		DontDestroyOnLoad (UIFBIsLoggedIn);
+		DontDestroyOnLoad (UIFBUsername);
 	}
 	
 	//-------------------------------------------------------------------------

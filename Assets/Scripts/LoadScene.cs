@@ -3,10 +3,12 @@ using System.Collections;
 using System;
 
 public class LoadScene : MonoBehaviour {
+
 	void Awake()
 	{
 		FB.Init (SetInit, OnHideUnity);
 	}
+
 	
 	//-------------------------------------------------------------------------
 	private void SetInit()
