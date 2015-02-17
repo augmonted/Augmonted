@@ -66,6 +66,8 @@ public class FacebookManager : MonoBehaviour {
 			FB.API (Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, onPictureCallback);
 			// get name
 			FB.API ("/me?fields=id, first_name", Facebook.HttpMethod.GET, onNameCallback);
+
+			Application.LoadLevel("user");
 		}
 		else
 			Debug.Log ("FB Login Failed");
