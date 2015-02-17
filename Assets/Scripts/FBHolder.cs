@@ -19,7 +19,8 @@ public class FBHolder : MonoBehaviour {
 		// check if user is already logged in
 		if (FB.IsLoggedIn)
 		{
-			Debug.Log ("FB Logged In");
+			Debug.Log ("FB already Logged In");
+			Application.LoadLevel("user");
 		}
 		else
 		{
@@ -51,7 +52,8 @@ public class FBHolder : MonoBehaviour {
 	{
 		if(FB.IsLoggedIn)
 		{
-			Debug.Log ("FB Login Worked");
+			Debug.Log ("FB Login Worked on callback");
+			Application.LoadLevel("user");
 		}
 		else
 		{
