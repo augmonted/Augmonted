@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System;
-using System.Net;
 using System.Collections.Specialized;
 using SimpleJSON;
 
