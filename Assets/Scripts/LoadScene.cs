@@ -3,10 +3,9 @@ using System.Collections;
 using System;
 
 public class LoadScene : MonoBehaviour {
-
 	void Awake()
 	{
-		FacebookManager.Instance ().callInit ();
+		gameObject.AddComponent<FacebookManager> ();
 	}
 
 	public void loadScene(string scene) {

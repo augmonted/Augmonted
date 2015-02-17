@@ -79,25 +79,26 @@ public class FacebookManager : MonoBehaviour {
 
 		if (result.Error != null) {
 			Debug.Log ("Could not get profile picture");
-
+			return;
 			// set a default picture
 		} 
 
 		else {
-			// FB returns a Texture2D handle it how you will
+			return;// FB returns a Texture2D handle it how you will
 		}
 	}
 
 	private void onNameCallback(FBResult result) {
 		if (result.Error != null) {
 			Debug.Log ("Could not get a name");
-			
+			return;
 		// set a default name
 		} 
 
 		else {
 			var dict = Json.Deserialize(result.Text) as Dictionary<string, object>;
 			FullName = (string) dict["name"];
+			return;
 		}
 	}
 }
