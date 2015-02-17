@@ -4,11 +4,11 @@ using System;
 using System.Data;
 using Mono.Data.Sqlite;
 
-public class Database : MonoBehaviour {
+public class Database {
 	IDbConnection dbcon;
 	IDbCommand dbcmd;
 
-	void Start () {
+	Database () {
 
 		DropTables ();	// Drop table to ensure that the table is fresh
 
@@ -43,8 +43,10 @@ public class Database : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	Database (string id) {
 	
+		DropTables ();
+		CheckDbExist (id);
 	}
 	/******************************************************************************************************************************/
 	/*** 											Drop both Tables															***/
