@@ -11,9 +11,9 @@ public class SplashScreen : MonoBehaviour {
 	}
 
 	IEnumerator DisplayScene() {
-				yield return new WaitForSeconds (timer);
-				Application.LoadLevel (levelToLoad);
-		}
+		yield return new WaitForSeconds (timer);
+		Application.LoadLevel (levelToLoad);
+	}
 
 	// Update is called once per frame
 	void Update () {

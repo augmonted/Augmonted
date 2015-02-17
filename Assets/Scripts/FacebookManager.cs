@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Facebook.MiniJSON;
 
 public class FacebookManager : MonoBehaviour {
 
 	static FacebookManager instance = null;
 
-	public string FullName;
-	public string Gender;
+	private string FullName;
+	private string Gender;
 
 	public static FacebookManager Instance() {
 		return instance;
@@ -94,7 +96,8 @@ public class FacebookManager : MonoBehaviour {
 		} 
 
 		else {
-			FullName = result.Text.ToString();
+			var dict = Json.Deserialize(result.Text) as Dictionary<string, object>;
+			FullName = (string) dict["name"];
 		}
 	}
 }
