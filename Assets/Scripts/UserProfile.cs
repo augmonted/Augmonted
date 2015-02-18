@@ -9,19 +9,15 @@ using UnityEngine.UI;
 public class UserProfile : MonoBehaviour {
 
 	Image image;
-	Sprite ProfilePic;
 	string name;
 
 	// Use this for initialization
 	void Start () {
-		//image = gameObject.GetComponentInChildren<Image>();
 		image = GameObject.Find("ProfileImage").GetComponent<Image>();
-		ProfilePic = FacebookManager.Instance().ProfilePic;
-		image.sprite = FacebookManager.Instance().ProfilePic;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		image.sprite = FacebookManager.Instance().ProfilePic;
 	}
 }
