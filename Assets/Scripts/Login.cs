@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class Login : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+	void Awake()
+	{
+		gameObject.AddComponent<FacebookManager> ();
 	}
 	
 	// Update is called once per frame
