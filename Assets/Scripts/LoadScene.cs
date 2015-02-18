@@ -5,7 +5,6 @@ using System;
 public class LoadScene : MonoBehaviour {
 	void Awake()
 	{
-		gameObject.AddComponent<FacebookManager> ();
 	}
 
 	public void loadScene(string scene) {

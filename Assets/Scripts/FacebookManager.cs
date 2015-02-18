@@ -47,10 +47,13 @@ public class FacebookManager : MonoBehaviour {
 		FB.Logout ();
 	}
 
+	public bool IsLogged() {
+		return FB.IsLoggedIn;
+	}
+
 	private void onInitCallback() {
-		if (FB.IsLoggedIn) {
-			Application.LoadLevel ("user");
-		}
+		// do something if you want
+		return;
 	}
 
 	private void onHideUnityCallback(bool isGameShown) {
@@ -68,8 +71,6 @@ public class FacebookManager : MonoBehaviour {
 			FB.API (Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, onPictureCallback);
 			// get name
 			FB.API ("/me?fields=id, first_name", Facebook.HttpMethod.GET, onNameCallback);
-
-			Application.LoadLevel("user");
 		}
 		else
 			Debug.Log ("FB Login Failed");
