@@ -2,6 +2,10 @@
 using System.Collections;
 using System;
 
+/*
+ * Pick which scene to load can specify in here or 
+ * in the Unity editor.
+ */
 public class LoadScene : MonoBehaviour {
 	void Awake()
 	{

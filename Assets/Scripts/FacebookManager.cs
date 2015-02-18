@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Facebook.MiniJSON;
 
+/*
+ * This class is the wrapper for the Facebook API.
+ * The single instance is use to call the API methods.
+ * To call FB APIs simply do FacebookManager.Instance().MethodName()
+ * 
+ * DO NOT use Application.LoadLevel in here. Leave that up to
+ * scripts local to the scene.
+ */
 public class FacebookManager : MonoBehaviour {
 
 	static FacebookManager instance = null;
