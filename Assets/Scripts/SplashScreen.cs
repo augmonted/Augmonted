@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class SplashScreen : MonoBehaviour {
-	public float timer = 3f;
-	public string levelToLoad = "main";
+	
+	// edit these values in unity editor
+	public float timer;
+	public string levelToLoad;
 
 	// Use this for initialization
 	void Start () {

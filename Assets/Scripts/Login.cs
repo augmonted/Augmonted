@@ -11,6 +11,8 @@ public class Login : MonoBehaviour {
 
 	void Awake()
 	{
+		Debug.Log("Login: Awake");
+		Debug.Log("FB.IsLoggedIn value: " + FacebookManager.Instance().IsLogged());
 		if (FacebookManager.Instance ().IsLogged ())
 			Application.LoadLevel ("user");
 	}

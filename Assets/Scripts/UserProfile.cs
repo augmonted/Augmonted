@@ -8,16 +8,21 @@ using UnityEngine.UI;
  */
 public class UserProfile : MonoBehaviour {
 
-	Image image;
+	Image profile;
+	Text header;
 	string name;
 
 	// Use this for initialization
 	void Start () {
-		image = GameObject.Find("ProfileImage").GetComponent<Image>();
+		profile = GameObject.Find("ProfileImage").GetComponent<Image>();
+		header = GameObject.Find ("Header").GetComponent<Text>();
+		header.text = FacebookManager.Instance().FullName;
+		if(header != null)
+			Debug.Log("Found header");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		image.sprite = FacebookManager.Instance().ProfilePic;
+		profile.sprite = FacebookManager.Instance().ProfilePic;
 	}
 }
