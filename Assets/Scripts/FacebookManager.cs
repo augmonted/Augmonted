@@ -38,7 +38,6 @@ public class FacebookManager : MonoBehaviour {
 			instance = this;
 		
 		// Initialize FB SDK
-		enabled = false;
 		FB.Init (onInitCallback, onHideUnityCallback);
 		DontDestroyOnLoad (gameObject);
 	}
@@ -75,7 +74,6 @@ public class FacebookManager : MonoBehaviour {
 	private void onInitCallback() {
 		Debug.Log ("onInitCallback");
 		
-		enabled = true;
 		Debug.Log("FB.IsLoggedIn value: " + FB.IsLoggedIn);
 		if(FB.IsLoggedIn) {
 			Debug.Log("Already logged in");
@@ -126,7 +124,7 @@ public class FacebookManager : MonoBehaviour {
 	}
 
 	private void onNameCallback(FBResult result) {
-		// getting 400 bad request error each time
+		
 		if (result.Error != null) {
 			Debug.Log ("Could not get a name");
 			
@@ -137,8 +135,7 @@ public class FacebookManager : MonoBehaviour {
 			return;
 		} 
 
-		IDictionary dict = Facebook.MiniJSON.Json.Deserialize(result.Text) as IDictionary;
-
+		// to get access to other json fields must update Util.cs to do so
 		profile = Util.DeserializeJSONProfile(result.Text);
 		//FullName = profile["first_name"];
 		FullName = profile["name"];

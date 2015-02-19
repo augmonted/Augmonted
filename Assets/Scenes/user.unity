@@ -2252,7 +2252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a subtitle
+  m_Text: Welcome to Augmonted!
 --- !u!222 &1111526527
 CanvasRenderer:
   m_ObjectHideFlags: 0
