@@ -22,8 +22,6 @@ public class Util : ScriptableObject
             Debug.LogError(result.Error);
             return;
         }
-
-        //GameStateManager.FriendTexture = result.Texture;
     }
 
     public static Dictionary<string, string> RandomFriend(List<object> friends)
@@ -40,6 +38,13 @@ public class Util : ScriptableObject
         var responseObject = Json.Deserialize(response) as Dictionary<string, object>;
         object nameH;
         var profile = new Dictionary<string, string>();
+        
+        /*
+        if(responseObject.TryGetValue("name", out nameH))
+        {
+        	profile["name"] = (string) nameH;
+        }
+        */
         if (responseObject.TryGetValue("first_name", out nameH))
         {
             profile["first_name"] = (string)nameH;

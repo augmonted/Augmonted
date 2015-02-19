@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class SplashScreen : MonoBehaviour {
-	public float timer = 3f;
-	public string levelToLoad = "main";
+	
+	// edit these values in unity editor
+	public float timer;
+	public string levelToLoad;
 
 	// Use this for initialization
 	void Start () {
@@ -11,9 +13,9 @@ public class SplashScreen : MonoBehaviour {
 	}
 
 	IEnumerator DisplayScene() {
-				yield return new WaitForSeconds (timer);
-				Application.LoadLevel (levelToLoad);
-		}
+		yield return new WaitForSeconds (timer);
+		Application.LoadLevel (levelToLoad);
+	}
 
 	// Update is called once per frame
 	void Update () {
