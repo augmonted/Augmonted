@@ -14,6 +14,7 @@ public class FBHolder : MonoBehaviour {
 	// Callback when initialization is complete
 	private void SetInit()
 	{
+		enabled = true; // magic global to wait on FB before rendering
 		Debug.Log ("FB Init Done");
 		
 		// check if user is already logged in

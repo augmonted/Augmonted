@@ -6,7 +6,7 @@ public class LoadScene : MonoBehaviour {
 
 	void Awake()
 	{
-		FB.Init (SetInit, OnHideUnity);
+		//FB.Init (SetInit, OnHideUnity);
 	}
 
 	
