@@ -21,7 +21,9 @@ public class FacebookManager : MonoBehaviour {
 	
 	private Dictionary<string, string> profile;
 	
-	string meQueryString = "/v2.0/me?fields=id,first_name,friends.limit(100).fields(first_name,id,picture.width(128).height(128)),invitable_friends.limit(100).fields(first_name,id,picture.width(128).height(128))";
+	//string meQueryString = "/v2.0/me?fields=id, name, first_name";
+	string meQueryString = "/v2.0/me?fields=name";
+	Dictionary<string, string> formData;
 	
 
 	public static FacebookManager Instance() {
@@ -90,7 +92,7 @@ public class FacebookManager : MonoBehaviour {
 		// get profile picture
 		FB.API (Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, onPictureCallback);
 		// get name
-		FB.API ("/me?fields=id, name, first_name", Facebook.HttpMethod.GET, onNameCallback);
+		FB.API (meQueryString, Facebook.HttpMethod.GET, onNameCallback);
 	}
 
 	private void onHideUnityCallback(bool isGameShown) {
@@ -131,14 +133,15 @@ public class FacebookManager : MonoBehaviour {
 			Debug.Log(result.Error);
 			
 			// try again to get name
-			FB.API ("/me?fields=id, name, first_name", Facebook.HttpMethod.GET, onNameCallback);
+			FB.API (meQueryString, Facebook.HttpMethod.GET, onNameCallback);
 			return;
 		} 
 
 		IDictionary dict = Facebook.MiniJSON.Json.Deserialize(result.Text) as IDictionary;
 
 		profile = Util.DeserializeJSONProfile(result.Text);
-		FullName = profile["first_name"];
+		//FullName = profile["first_name"];
+		FullName = profile["name"];
 		Debug.Log("Name is: " + FullName);
 	}
 }
