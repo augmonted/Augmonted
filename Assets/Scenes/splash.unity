@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
-  levelToLoad: user
+  levelToLoad: login
 --- !u!1 &1088392743
 GameObject:
   m_ObjectHideFlags: 0
