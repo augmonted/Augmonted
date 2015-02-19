@@ -1235,6 +1235,7 @@ GameObject:
   - 20: {fileID: 686644790}
   - 92: {fileID: 686644789}
   - 114: {fileID: 686644791}
+  - 114: {fileID: 686644792}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1366,6 +1367,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonPanel: {fileID: 1649882641}
+--- !u!114 &686644792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 686644784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79a6f851d25ad542bad0005271f75e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &732162339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,7 +2010,7 @@ GameObject:
   - 114: {fileID: 984428204}
   - 114: {fileID: 984428203}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ProfileImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

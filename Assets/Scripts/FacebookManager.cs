@@ -15,8 +15,9 @@ public class FacebookManager : MonoBehaviour {
 
 	static FacebookManager instance = null;
 
-	private string FullName;
-	private string Gender;
+	public string FullName;
+	public string Gender;
+	public Sprite ProfilePic;
 
 	public static FacebookManager Instance() {
 		return instance;
@@ -88,26 +89,27 @@ public class FacebookManager : MonoBehaviour {
 
 		if (result.Error != null) {
 			Debug.Log ("Could not get profile picture");
+			
+			// try again to get profile picture
+			FB.API (Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, onPictureCallback);
 			return;
-			// set a default picture
 		} 
 
-		else {
-			return;// FB returns a Texture2D handle it how you will
-		}
+		ProfilePic = Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2(0, 0));
+		Debug.Log("Received profile picture");
 	}
 
 	private void onNameCallback(FBResult result) {
 		if (result.Error != null) {
 			Debug.Log ("Could not get a name");
+			
+			// try again to get name
+			FB.API ("/me?fields=id, first_name", Facebook.HttpMethod.GET, onNameCallback);
 			return;
-		// set a default name
 		} 
 
-		else {
-			var dict = Json.Deserialize(result.Text) as Dictionary<string, object>;
-			FullName = (string) dict["name"];
-			return;
-		}
+		var dict = Json.Deserialize(result.Text) as Dictionary<string, object>;
+		FullName = (string) dict["name"];
+		Debug.Log("Name is: " + FullName);
 	}
 }
