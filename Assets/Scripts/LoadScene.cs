@@ -2,37 +2,18 @@
 using System.Collections;
 using System;
 
+/*
+ * Pick which scene to load can specify in here or 
+ * in the Unity editor.
+ */
 public class LoadScene : MonoBehaviour {
-
 	void Awake()
 	{
-		FB.Init (SetInit, OnHideUnity);
-	}
-
-	
-	//-------------------------------------------------------------------------
-	private void SetInit()
-	{
-		enabled = true; // magic global to wait on FB before rendering
-		Debug.Log ("FB Init Done");
-	}
-	
-	//-------------------------------------------------------------------------
-	private void OnHideUnity(bool isGameShown)
-	{
-		if(!isGameShown)
-		{
-			Time.timeScale = 0; // pause game
-		}
-		else
-		{
-			Time.timeScale = 1; // resume
-		}
 	}
 
 	public void loadScene(string scene) {
 		if (scene.Equals ("login")) {
-			FB.Logout();
+			FacebookManager.Instance().callLogout();
 			StartCoroutine ("Logout");
 		}
 
