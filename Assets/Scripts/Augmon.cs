@@ -7,6 +7,8 @@ public class Augmon{
 
 	public int Total_xp { get; set; }
 
+	public int Lvl { get; set; }
+
 	public int Attack { get; set; }
 
 	public int Defense { get; set; }
