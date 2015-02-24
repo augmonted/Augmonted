@@ -36,21 +36,10 @@ public class AppMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// if running on Android
-		if (Application.platform == RuntimePlatform.Android)
-		{
-			// if back button is pressed
-			if (Input.GetKeyDown(KeyCode.Escape)) { 
-				// if AR scene go back to user scene
-				if(Application.loadedLevelName == "main")
-					Application.LoadLevel("user");
-				// if user scene kill the app
-				if(Application.loadedLevelName == "user")
-					Application.Quit();
-				// if login scene kill the app
-				if(Application.loadedLevelName == "login")
-					Application.Quit();
-			}
-		}
+		Debug.Log ("AppMaster: Update");
+		Debug.Log ("AppMaster in scene: " + Application.loadedLevelName);
+		// Couldn't use back button logic here because the update function here doesn't
+		// get called in other scenes for some reason
+		// refer to _BackButtonManager GameObject and BackButton.cs to handle back button press
 	}
 }
