@@ -7,7 +7,7 @@ public class Database {
 	IDbConnection dbcon;
 	IDbCommand dbcmd;
 
-	Database () {
+	public Database () {
 
 		DropTables ();	// Drop table to ensure that the table is fresh
 
@@ -23,6 +23,7 @@ public class Database {
 		/*** Tested Dummy Data ***/
 		tempmon.ID = 1;
 		tempmon.Total_xp = 50;
+		tempmon.Lvl = 2;
 		tempmon.Attack = 35;
 		tempmon.Defense = 26;
 		tempmon.Happiness = 99;
@@ -42,7 +43,7 @@ public class Database {
 	}
 	
 	// Update is called once per frame
-	Database (string id) {
+	public Database (string id) {
 	
 		DropTables ();
 		CheckDbExist (id);
@@ -52,7 +53,7 @@ public class Database {
 	/******************************************************************************************************************************/
 	/*** 									Call this method to drop both tables												***/
 	/******************************************************************************************************************************/
-	void DropTables()
+	public void DropTables()
 	{
 		OpenConnection ();
 
@@ -80,7 +81,7 @@ public class Database {
 	/***						augmon(id, total_xp, attack, defense, happiness) = (id, 0, 10, 10, 10)							***/
 	/***						pedometer(id, total_steps, daily_steps) = (id, 0, 0, 0)											***/
 	/******************************************************************************************************************************/
-	void CheckDbExist(string id)
+	public void CheckDbExist(string id)
 	{
 
 		OpenConnection ();
@@ -96,9 +97,9 @@ public class Database {
 		reader.Close ();
 		reader = null;
 
-		string create_augmon_sql = "CREATE TABLE augmon(id INT, total_xp INT, attack INT, defense INT, happiness INT)";
+		string create_augmon_sql = "CREATE TABLE augmon(id INT, total_xp INT, lvl INT, attack INT, defense INT, happiness INT)";
 		string create_pedometer_sql = "CREATE TABLE pedometer(id INT, total_steps INT, daily_steps INT)";
-		string insert_default_augmon = "INSERT INTO augmon VALUES(" + id + ", 0, 10, 10, 10)";
+		string insert_default_augmon = "INSERT INTO augmon VALUES(" + id + ", 0, 1, 10, 10, 10)";
 		string insert_default_pedo = "INSERT INTO pedometer VALUES(" + id + ", 0, 0)";
 		dbcmd.CommandText = create_augmon_sql;
 		dbcmd.ExecuteNonQuery ();
@@ -120,7 +121,7 @@ public class Database {
 	/******************************************************************************************************************************/
 	/*** 										Establish Connection to Database												***/
 	/******************************************************************************************************************************/
-	void OpenConnection()
+	public void OpenConnection()
 	{
 		// this method open connection to local database
 		string connectionString = "URI=file:augmon.db";
@@ -146,7 +147,7 @@ public class Database {
 	/******************************************************************************************************************************/
 	/*** 										Get All function : Augmon														***/
 	/******************************************************************************************************************************/
-	Augmon GetAugmonInfo()
+	public Augmon GetAugmonInfo()
 	{
 		OpenConnection ();
 		Debug.Log ("GetAugmonInfo being called");
@@ -159,12 +160,13 @@ public class Database {
 		{
 			augmon.ID = reader.GetInt32(0);
 			augmon.Total_xp = reader.GetInt32(1);
-			augmon.Attack = reader.GetInt32(2);
-			augmon.Defense = reader.GetInt32(3);
-			augmon.Happiness = reader.GetInt32(4);
+			augmon.Lvl = reader.GetInt32 (2);
+			augmon.Attack = reader.GetInt32(3);
+			augmon.Defense = reader.GetInt32(4);
+			augmon.Happiness = reader.GetInt32(5);
 		}
 
-		Debug.Log ("Augmon:\tid = " + augmon.ID + "\ttotal_xp = " + augmon.Total_xp + "\tattack = " + augmon.Attack + "\tdefense = " + augmon.Defense + "\thappiness = " + augmon.Happiness);
+		Debug.Log ("Augmon:\tid = " + augmon.ID + "\ttotal_xp = " + augmon.Total_xp + "\tlvl = " + augmon.Lvl + "\tattack = " + augmon.Attack + "\tdefense = " + augmon.Defense + "\thappiness = " + augmon.Happiness);
 		reader.Close ();
 		reader = null;
 		CloseConnection ();
@@ -175,14 +177,14 @@ public class Database {
 	/******************************************************************************************************************************/
 	/*** 										Update All function : Augmon													***/
 	/******************************************************************************************************************************/
-	void StoreAugmonInfo(Augmon augmon)
+	public void StoreAugmonInfo(Augmon augmon)
 	{
 		OpenConnection ();
 		Debug.Log ("StoreAugmonInfo being called");
 		dbcmd = dbcon.CreateCommand ();
 		dbcmd.CommandType = CommandType.Text;
 
-		string sql = "UPDATE augmon SET total_xp = " + augmon.Total_xp + ", attack = " + augmon.Attack + ", defense = " + augmon.Defense + ", happiness = " + augmon.Happiness + " WHERE id = " + augmon.ID;
+		string sql = "UPDATE augmon SET total_xp = " + augmon.Total_xp + ", lvl = " + augmon.Lvl + ", attack = " + augmon.Attack + ", defense = " + augmon.Defense + ", happiness = " + augmon.Happiness + " WHERE id = " + augmon.ID;
 		dbcmd.CommandText = sql;
 		dbcmd.ExecuteNonQuery();
 		Debug.Log ("all columns on augmon table updated");
@@ -193,7 +195,7 @@ public class Database {
 	/******************************************************************************************************************************/
 	/*** 										Get All function : Pedometer													***/
 	/******************************************************************************************************************************/
-	Pedometer GetPedometerInfo()
+	public Pedometer GetPedometerInfo()
 	{
 		OpenConnection ();
 		Debug.Log ("GetPedometerInfo being called");
@@ -219,7 +221,7 @@ public class Database {
 	/******************************************************************************************************************************/
 	/*** 										Update All function : Pedometer													***/
 	/******************************************************************************************************************************/
-	void StorePedometerInfo(Pedometer pedometer)
+	public void StorePedometerInfo(Pedometer pedometer)
 	{
 		OpenConnection ();
 		Debug.Log ("StorePedometerInfo being called");
