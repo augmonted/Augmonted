@@ -16,7 +16,7 @@ public class UserProfile : MonoBehaviour {
 	void Start () {
 		profile = GameObject.Find("ProfileImage").GetComponent<Image>();
 		header = GameObject.Find ("Header").GetComponent<Text>();
-		header.text = FacebookManager.Instance().FullName;
+		//header.text = FacebookManager.Instance().FullName;
 		if(header != null)
 			Debug.Log("Found header");
 	}
@@ -24,5 +24,6 @@ public class UserProfile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		profile.sprite = FacebookManager.Instance().ProfilePic;
+		header.text = FacebookManager.Instance().FullName;
 	}
 }

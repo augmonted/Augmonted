@@ -21,7 +21,9 @@ public class FacebookManager : MonoBehaviour {
 	
 	private Dictionary<string, string> profile;
 	
-	string meQueryString = "/v2.0/me?fields=id,first_name,friends.limit(100).fields(first_name,id,picture.width(128).height(128)),invitable_friends.limit(100).fields(first_name,id,picture.width(128).height(128))";
+	//string meQueryString = "/v2.0/me?fields=id, name, first_name";
+	string meQueryString = "/v2.0/me?fields=name";
+	Dictionary<string, string> formData;
 	
 
 	public static FacebookManager Instance() {
@@ -36,7 +38,6 @@ public class FacebookManager : MonoBehaviour {
 			instance = this;
 		
 		// Initialize FB SDK
-		enabled = false;
 		FB.Init (onInitCallback, onHideUnityCallback);
 		DontDestroyOnLoad (gameObject);
 	}
@@ -73,7 +74,6 @@ public class FacebookManager : MonoBehaviour {
 	private void onInitCallback() {
 		Debug.Log ("onInitCallback");
 		
-		enabled = true;
 		Debug.Log("FB.IsLoggedIn value: " + FB.IsLoggedIn);
 		if(FB.IsLoggedIn) {
 			Debug.Log("Already logged in");
@@ -90,7 +90,7 @@ public class FacebookManager : MonoBehaviour {
 		// get profile picture
 		FB.API (Util.GetPictureURL("me", 128, 128), Facebook.HttpMethod.GET, onPictureCallback);
 		// get name
-		FB.API ("/me?fields=id, name, first_name", Facebook.HttpMethod.GET, onNameCallback);
+		FB.API (meQueryString, Facebook.HttpMethod.GET, onNameCallback);
 	}
 
 	private void onHideUnityCallback(bool isGameShown) {
@@ -124,21 +124,21 @@ public class FacebookManager : MonoBehaviour {
 	}
 
 	private void onNameCallback(FBResult result) {
-		// getting 400 bad request error each time
+		
 		if (result.Error != null) {
 			Debug.Log ("Could not get a name");
 			
 			Debug.Log(result.Error);
 			
 			// try again to get name
-			FB.API ("/me?fields=id, name, first_name", Facebook.HttpMethod.GET, onNameCallback);
+			FB.API (meQueryString, Facebook.HttpMethod.GET, onNameCallback);
 			return;
 		} 
 
-		IDictionary dict = Facebook.MiniJSON.Json.Deserialize(result.Text) as IDictionary;
-
+		// to get access to other json fields must update Util.cs to do so
 		profile = Util.DeserializeJSONProfile(result.Text);
-		FullName = profile["first_name"];
+		//FullName = profile["first_name"];
+		FullName = profile["name"];
 		Debug.Log("Name is: " + FullName);
 	}
 }

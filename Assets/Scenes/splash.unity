@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
-  levelToLoad: user
+  levelToLoad: login
 --- !u!1 &1088392743
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +262,7 @@ Transform:
   m_Children:
   - {fileID: 908886072}
   - {fileID: 2106216963}
+  - {fileID: 2063939145}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!212 &1088392745
@@ -324,7 +325,7 @@ Transform:
   m_LocalPosition: {x: 227.596222, y: 222.535828, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1088392744}
   m_RootOrder: 2
 --- !u!1 &2106216961
 GameObject:
