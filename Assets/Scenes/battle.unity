@@ -391,7 +391,7 @@ Transform:
   - {fileID: 929946474}
   m_Father: {fileID: 2131475159}
   m_RootOrder: 0
---- !u!43 &423349662
+--- !u!43 &454458861
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2899,7 +2899,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2049060317}
   m_RootOrder: 3
---- !u!21 &1156499858
+--- !u!21 &1167165365
 Material:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -3134,6 +3134,10 @@ Prefab:
       propertyPath: mDataSetsToActivate.Array.data[0]
       value: platform_targets
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
+      propertyPath: VuforiaLicenseKey
+      value: "da437ca4b92440efae01a75c419fd939\r\nda437ca4b92440efae01a75c419fd939\r\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
   m_RootGameObject: {fileID: 2131475149}
@@ -3292,7 +3296,7 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 2117408346}
   m_GameObject: {fileID: 2049060311}
-  m_Mesh: {fileID: 423349662}
+  m_Mesh: {fileID: 454458861}
 --- !u!114 &2049060314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,7 +3351,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 1156499858}
+  - {fileID: 1167165365}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3425,7 +3429,7 @@ Prefab:
     - target: {fileID: 3300000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 423349662}
+      objectReference: {fileID: 454458861}
     - target: {fileID: 11400000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: mTrackableName
       value: DEEPBLUE
@@ -3445,7 +3449,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1156499858}
+      objectReference: {fileID: 1167165365}
     - target: {fileID: 400000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_LocalScale.x
       value: 2.99818182
@@ -3567,11 +3571,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4114ca95ba12f394a8ad43abfc86745c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VuforiaLicenseKey: 
+  VuforiaLicenseKey: "da437ca4b92440efae01a75c419fd939\r\nda437ca4b92440efae01a75c419fd939\r\n"
   mCameraOffset: 0
   mSceneScaleFactor: 0
   CameraDeviceModeSetting: -1
   MaxSimultaneousImageTargets: 1
+  MaxSimultaneousObjectTargets: 1
+  UseDelayedLoadingObjectTargets: 0
   CameraDirection: 0
   MirrorVideoBackground: 0
   mWorldCenterMode: 1
