@@ -19,7 +19,7 @@ public class BackButton : MonoBehaviour {
 			// if back button is pressed
 			if (Input.GetKeyDown(KeyCode.Escape)) { 
 				// if AR scene go back to user scene
-				if(Application.loadedLevelName == "main")
+				if(Application.loadedLevelName == "battle")
 					Application.LoadLevel("user");
 				// if user scene kill the app
 				if(Application.loadedLevelName == "user")
