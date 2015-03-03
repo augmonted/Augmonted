@@ -162,5 +162,12 @@ namespace MaterialUI
 					Close();
 			}
 		}
+
+		//added Larry Chau - 2/6/2015
+		//returns state, 1 if open, 0 if closed
+		public bool isClosed(){
+			if (state == 2)	return true;
+			return false;
+		}
 	}
 }
