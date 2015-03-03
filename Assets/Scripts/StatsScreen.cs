@@ -11,7 +11,7 @@ public class StatsScreen : MonoBehaviour {
 	private bool statsMenuOn = false;
 	private Image icon;
 	private Text ButtonText;
-
+	private DAO database = new DAO();
 	enum index {Battle,Stats,Feed,Steps,Logout};
 
 	public class ButtonContainer{
@@ -68,19 +68,20 @@ public class StatsScreen : MonoBehaviour {
 	}
 
 	private void displayStats() {
+		Augmon augmon = database.GetAugmonInfo(1);
 		for (int i = 0; i<5; i++) {
 			switch (augmonbuttons[i].name){
 				case "Battle":
-					augmonbuttons[i].ButtonText.text = "Augmon Name:";//String.Format("Augmon Name: {0}", "Cubert");
+					augmonbuttons[i].ButtonText.text = "Augmon Name: " + augmon.ID;//String.Format("Augmon Name: {0}", "Cubert");
 					break;
 				case "Stats":
-					augmonbuttons[i].ButtonText.text = "Attack:0";
+					augmonbuttons[i].ButtonText.text = "Attack: " + augmon.Attack;
 					break;
 				case "Feed":
-					augmonbuttons[i].ButtonText.text = "Def:0";
+					augmonbuttons[i].ButtonText.text = "Def: " + augmon.Defense;
 					break;
 				case "Steps":
-					augmonbuttons[i].ButtonText.text = "Health:100%";
+					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
 					break;
 				case "Logout":
 					augmonbuttons[i].ButtonText.text = "";
