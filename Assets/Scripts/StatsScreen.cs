@@ -11,7 +11,7 @@ public class StatsScreen : MonoBehaviour {
 	private bool statsMenuOn = false;
 	private Image icon;
 	private Text ButtonText;
-	private DAO database = new DAO();
+	private DAO database;
 	enum index {Battle,Stats,Feed,Steps,Logout};
 
 	public class ButtonContainer{
@@ -35,6 +35,9 @@ public class StatsScreen : MonoBehaviour {
 		//get and close navdrawer
 		navdrawer = GameObject.Find ("Nav Drawer").GetComponent<NavDrawerConfig> ();
 		navdrawer.Close ();
+
+		//declare database
+		database = new DAO ();
 
 		getStats ();
 		//pause to avoid stain
@@ -68,11 +71,13 @@ public class StatsScreen : MonoBehaviour {
 	}
 
 	private void displayStats() {
-		Augmon augmon = database.GetAugmonInfo(1);
+		//change this to FB login ID
+		Augmon augmon = database.GetAugmonInfo(FacebookManager.Instance ().user_ID);
 		for (int i = 0; i<5; i++) {
+			RectTransform trans = augmonbuttons[i].ButtonText.rectTransform;
 			switch (augmonbuttons[i].name){
 				case "Battle":
-					augmonbuttons[i].ButtonText.text = "Augmon Name: " + augmon.ID;//String.Format("Augmon Name: {0}", "Cubert");
+					augmonbuttons[i].ButtonText.text = "Augmon Name: " + augmon.ID;
 					break;
 				case "Stats":
 					augmonbuttons[i].ButtonText.text = "Attack: " + augmon.Attack;

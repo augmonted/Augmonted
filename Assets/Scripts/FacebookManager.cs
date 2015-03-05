@@ -19,6 +19,7 @@ public class FacebookManager : MonoBehaviour {
 	public string Gender;
 	public Sprite ProfilePic;
 	public string FB_ID;
+	public int user_ID;
 	
 	private Dictionary<string, string> profile;
 	
@@ -63,6 +64,9 @@ public class FacebookManager : MonoBehaviour {
 		 * verified
 		 */
 		FB.Login ("public_profile, email", onLoginCallback);
+		DAO database = new DAO ();
+		database.RegisterWithFacebook (FB_ID);
+		user_ID = database.LoginWithFacebook(FB_ID);
 	}
 
 	public void callLogout() {
