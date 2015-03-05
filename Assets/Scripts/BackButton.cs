@@ -10,8 +10,8 @@ public class BackButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("BackButton: Update");
-		Debug.Log("BackButton in scene: " + Application.loadedLevelName);	
+		//Debug.Log("BackButton: Update");
+		//Debug.Log("BackButton in scene: " + Application.loadedLevelName);	
 		
 		// if running on Android
 		if (Application.platform == RuntimePlatform.Android)
