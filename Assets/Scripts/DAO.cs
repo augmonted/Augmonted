@@ -156,10 +156,10 @@ public class DAO {
 		return result;
 	}
 
-	public bool LoginWithEmail(string email, string password)
+	public int LoginWithEmail(string email, string password)
 	{
 		string url = "http://ec2-54-183-168-17.us-west-1.compute.amazonaws.com/augmonted/user/login";
-		bool result = false;
+		int result = -1;
 		try
 		{
 			ASCIIEncoding encoding = new ASCIIEncoding ();
@@ -184,15 +184,13 @@ public class DAO {
 			stream.Close ();
 			
 			var N = JSON.Parse (jsonString);
-			Debug.Log("string:\t" + N);
-			Debug.Log ("Reassembled: " + N.ToString ());
 			
 			var success = N ["success"];
-			Debug.Log ("success:\t" + success.AsBool);
+			var id = N["user_id"];
 			
 			if(success.AsBool)
 			{
-				result = true;
+				result = id.AsInt;
 			}
 			
 		}
