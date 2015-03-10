@@ -73,7 +73,7 @@ PlayerSettings:
   productGUID: 519a374763b9888428cd1977b652633d
   iPhoneBundleVersion: 1.0
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 14
+  AndroidMinSdkVersion: 19
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 1
@@ -111,6 +111,20 @@ PlayerSettings:
     m_Icons:
     - m_Icon: {fileID: 0}
       m_Size: 128
+  - m_BuildTarget: Android
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: 33762d924b05b1e4d988e4fd0f13b6d3, type: 3}
+      m_Size: 192
+    - m_Icon: {fileID: 2800000, guid: c70f571836dcfda4db54a63af0d56439, type: 3}
+      m_Size: 144
+    - m_Icon: {fileID: 2800000, guid: 65b737e9ba749b54b94c53fb9128c094, type: 3}
+      m_Size: 96
+    - m_Icon: {fileID: 2800000, guid: ed6645ed7a7437440ba04db0fc41c220, type: 3}
+      m_Size: 72
+    - m_Icon: {fileID: 2800000, guid: d3821cf853c54f544826cf3af06a7bc7, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 0}
+      m_Size: 36
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
@@ -248,7 +262,9 @@ PlayerSettings:
   tizenMicrophonePermissions: 0
   stvDeviceAddress: 
   wp8UnprocessedPlugins: []
-  intPropertyNames: []
+  intPropertyNames:
+  - iOS::ScriptingBackend
+  iOS::ScriptingBackend: 1
   firstStreamedLevelWithResources: 0
   unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39

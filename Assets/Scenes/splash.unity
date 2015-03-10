@@ -207,7 +207,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 552aa2fb2d16ab34b9400c47d6743521, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21c02c352cfca714882d459f55b2fd26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &908886072
 Transform:
@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 908886070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.10000002, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.39999998, y: 1.39999998, z: 1}
   m_Children: []
   m_Father: {fileID: 1088392744}
   m_RootOrder: 0
@@ -263,6 +263,7 @@ Transform:
   - {fileID: 908886072}
   - {fileID: 2106216963}
   - {fileID: 2063939145}
+  - {fileID: 1958652744}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!212 &1088392745
@@ -287,6 +288,46 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1958652743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1958652744}
+  - 114: {fileID: 1958652745}
+  m_Layer: 0
+  m_Name: PedometerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1958652744
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1958652743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1639, y: 2542, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1088392744}
+  m_RootOrder: 3
+--- !u!114 &1958652745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1958652743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ceb49c2e9bd9f47afd3d9ba5d20069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepCnt: 0
 --- !u!1 &2063939143
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +398,8 @@ MonoBehaviour:
   FullName: 
   Gender: 
   ProfilePic: {fileID: 0}
+  FB_ID: 
+  user_ID: 0
 --- !u!224 &2106216963
 RectTransform:
   m_ObjectHideFlags: 0

@@ -29,6 +29,16 @@ public class LoadScene : MonoBehaviour {
 		}
 		else {
 			// successful logout, do what you want here
+
+			//clear facebook instance
+			var inst = FacebookManager.Instance();
+			inst.FB_ID = null;
+			inst.user_ID = -1;
+			inst.ProfilePic = null;
+			inst.Gender = "";
+			inst.FullName = "";
+			inst.callLogout ();
+
 			Debug.Log("Logged out!");
 			Application.LoadLevel("login"); // logged out, go load the login level now
 		}
