@@ -232,25 +232,26 @@ public class DAO {
 				user.Email = N["data"]["email"];
 				user.FirstName = N["data"]["first_name"];
 				user.LastName = N["data"]["last_name"];
-
+				
 				user.AugmonInfo = new Augmon();
 				user.PedometerInfo = new Pedometer();
-
+				
+				user.AugmonInfo.Name = N["data"]["name"];
 				user.AugmonInfo.Total_xp = N["data"]["total_xp"].AsInt;
 				user.AugmonInfo.Lvl = N["data"]["lvl"].AsInt;
 				user.AugmonInfo.Attack = N["data"]["attack"].AsInt;
 				user.AugmonInfo.Defense = N["data"]["defense"].AsInt;
 				user.AugmonInfo.Happiness = N["data"]["happiness"].AsInt;
-
+				
 				user.PedometerInfo.Total_step = N["data"]["total_steps"].AsInt;
 				user.PedometerInfo.Daily_step = N["data"]["daily_steps"].AsInt;
-
-
-
+				
+				
+				
 				Debug.Log ("User:\t\t" + "ID : " + user.ID + "\tfacebook_id : " + user.Facebook_ID + "\tfirst_name : " + user.FirstName + "\tlast_name : " + user.LastName +"\n");
 				Debug.Log ("User's Augmon: Total_xp : " +  user.AugmonInfo.Total_xp + "\tLvl : " + user.AugmonInfo.Lvl +"\tAttack : " +user.AugmonInfo.Attack +"\tDefense : " + user.AugmonInfo.Defense + "\tHappiness : " + user.AugmonInfo.Happiness +"\n");
 				Debug.Log ("User's Pedometer: Total_steps : " + user.PedometerInfo.Total_step + "\tDaily_steps : " +user.PedometerInfo.Daily_step + "\n");
-
+				
 				return user;
 			}
 			
@@ -289,6 +290,7 @@ public class DAO {
 			if(success.AsBool)
 			{
 				augmon.ID = N["data"]["id"].AsInt;
+				augmon.Name = N["data"]["name"];
 				augmon.Total_xp = N["data"]["total_xp"].AsInt;
 				augmon.Lvl = N["data"]["lvl"].AsInt;
 				augmon.Attack = N["data"]["attack"].AsInt;
@@ -297,8 +299,8 @@ public class DAO {
 				Debug.Log ("Augmon:\t\t" + "ID : " + augmon.ID + "\tTotal_xp : " + augmon.Total_xp + "\tLvl : " + augmon.Lvl + "\tattack : " + augmon.Attack + "\tdefense : " + augmon.Defense + "\thappiness : " + augmon.Happiness);
 				return augmon;
 			}
-
-
+			
+			
 		}
 		catch(Exception ex)
 		{
@@ -349,51 +351,51 @@ public class DAO {
 	}
 
 
-//	public bool UpdateUser(User user)
-//	{
-//		string url = "http://ec2-54-183-168-17.us-west-1.compute.amazonaws.com/augmonted/user/update";
-//		string jsonString;
-//		bool result = false;
-//		try
-//		{
-//			ASCIIEncoding encoding = new ASCIIEncoding ();
-//			string postData = "{\"facebook_id\":\""+facebook_id+"\"}";
-//			byte[] data = encoding.GetBytes (postData);
-//			var http = (HttpWebRequest)WebRequest.Create (new Uri (url));
-//			http.Accept = "applicaiton/json";
-//			http.ContentType = "application/json";
-//			http.Method = "POST";
-//			
-//			Stream stream = http.GetRequestStream ();
-//			stream.Write (data, 0, data.Length);
-//			stream.Close ();
-//			
-//			WebResponse response = http.GetResponse ();
-//			stream = response.GetResponseStream ();
-//			
-//			StreamReader sr = new StreamReader (stream);
-//			jsonString = sr.ReadToEnd ();
-//			
-//			sr.Close ();
-//			stream.Close ();
-//			
-//			var N = JSON.Parse (jsonString);
-//			Debug.Log ("Reassembled: " + N.ToString ());
-//			
-//			var success = N ["success"];
-//			
-//			if(success.AsBool)
-//			{
-//				result = true;
-//			}
-//			
-//		}
-//		catch (Exception ex)
-//		{
-//			Debug.Log ("Error : " + ex.Message);
-//		}
-//		return result;
-//	}
+	public bool UpdateUser(User user, string password)
+	{
+		string url = "http://ec2-54-183-168-17.us-west-1.compute.amazonaws.com/augmonted/user/update";
+		string jsonString;
+		bool result = false;
+		try
+		{
+			ASCIIEncoding encoding = new ASCIIEncoding ();
+			string postData = "{\"user_id\":"+user.ID+", \"email\":\""+user.Email +"\",\"first_name\":\""+ user.FirstName +"\", \"last_name\":\""+ user.LastName+"\", \"password\":\""+ password +"\"}";
+			byte[] data = encoding.GetBytes (postData);
+			var http = (HttpWebRequest)WebRequest.Create (new Uri (url));
+			http.Accept = "applicaiton/json";
+			http.ContentType = "application/json";
+			http.Method = "POST";
+			
+			Stream stream = http.GetRequestStream ();
+			stream.Write (data, 0, data.Length);
+			stream.Close ();
+			
+			WebResponse response = http.GetResponse ();
+			stream = response.GetResponseStream ();
+			
+			StreamReader sr = new StreamReader (stream);
+			jsonString = sr.ReadToEnd ();
+			
+			sr.Close ();
+			stream.Close ();
+			
+			var N = JSON.Parse (jsonString);
+			Debug.Log ("Reassembled: " + N.ToString ());
+			
+			var success = N ["success"];
+			
+			if(success.AsBool)
+			{
+				result = true;
+			}
+			
+		}
+		catch (Exception ex)
+		{
+			Debug.Log ("Error : " + ex.Message);
+		}
+		return result;
+	}
 
 	public bool UpdateAugmon(Augmon augmon)
 	{
@@ -403,7 +405,53 @@ public class DAO {
 		try
 		{
 			ASCIIEncoding encoding = new ASCIIEncoding ();
-			string postData = "{\"augmon_id\":"+augmon.ID+", \"total_xp\":"+ augmon.Total_xp +",\"attack\":"+ augmon.Attack +", \"defense\":"+ augmon.Defense+", \"happiness\":"+ augmon.Happiness +"}";
+			string postData = "{\"augmon_id\":"+augmon.ID+", \"name\":" + "\""+augmon.Name+"\""+ "\"total_xp\":"+ augmon.Total_xp +",\"attack\":"+ augmon.Attack +", \"defense\":"+ augmon.Defense+", \"happiness\":"+ augmon.Happiness +"}";
+			byte[] data = encoding.GetBytes (postData);
+			var http = (HttpWebRequest)WebRequest.Create (new Uri (url));
+			http.Accept = "applicaiton/json";
+			http.ContentType = "application/json";
+			http.Method = "POST";
+			
+			Stream stream = http.GetRequestStream ();
+			stream.Write (data, 0, data.Length);
+			stream.Close ();
+			
+			WebResponse response = http.GetResponse ();
+			stream = response.GetResponseStream ();
+			
+			StreamReader sr = new StreamReader (stream);
+			jsonString = sr.ReadToEnd ();
+			
+			sr.Close ();
+			stream.Close ();
+			
+			var N = JSON.Parse (jsonString);
+			Debug.Log ("Reassembled: " + N.ToString ());
+			
+			var success = N ["success"];
+			
+			if(success.AsBool)
+			{
+				result = true;
+			}
+			
+		}
+		catch (Exception ex)
+		{
+			Debug.Log ("Error : " + ex.Message);
+		}
+		return result;
+	}
+
+	public bool UpdateAugmonName(int id, string name)
+	{
+		string url = "http://ec2-54-183-168-17.us-west-1.compute.amazonaws.com/augmonted/augmon/updateName";
+		string jsonString;
+		bool result = false;
+		try
+		{
+			ASCIIEncoding encoding = new ASCIIEncoding ();
+			string postData = "{\"augmon_id\":"+id+", \"name\":" + "\""+name+"\"}";
 			byte[] data = encoding.GetBytes (postData);
 			var http = (HttpWebRequest)WebRequest.Create (new Uri (url));
 			http.Accept = "applicaiton/json";

@@ -845,7 +845,6 @@ GameObject:
   - 114: {fileID: 686644786}
   - 20: {fileID: 686644790}
   - 92: {fileID: 686644789}
-  - 114: {fileID: 686644791}
   - 114: {fileID: 686644792}
   m_Layer: 5
   m_Name: Canvas
@@ -972,17 +971,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
---- !u!114 &686644791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 686644784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f720b62ac0830e4292f253ee82d7aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &686644792
 MonoBehaviour:
   m_ObjectHideFlags: 0

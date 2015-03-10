@@ -14,6 +14,8 @@ public class SplashScreen : MonoBehaviour {
 
 	IEnumerator DisplayScene() {
 		yield return new WaitForSeconds (timer);
+		AppMaster.currentScene = levelToLoad;
+		AppMaster.Instance ().callHit ();
 		Application.LoadLevel (levelToLoad);
 	}
 

@@ -21,6 +21,13 @@
             add the following library.
             Devices that require this are: ODG X6 
         -->
+    <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
+    <receiver android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver"
+              android:exported="true" >
+      <intent-filter>
+        <action android:name="com.android.vending.INSTALL_REFERRER" />
+      </intent-filter>
+    </receiver>
     <uses-library android:name="com.ti.s3d" android:required="false" />
     <activity android:name="com.facebook.unity.FBUnityLoginActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
     </activity>
