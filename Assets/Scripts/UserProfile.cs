@@ -15,6 +15,16 @@ public class UserProfile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GameObject Cube = GameObject.Find ("Cube");
+		
+		GameObject playerAugmonModel = Instantiate(Resources.Load("Prefabs/" + FacebookManager.Instance ().playerAugmon, typeof(GameObject))) as GameObject;
+		//playerAugmonModel.transform.parent = Cube.transform;
+		
+		GameObject spawnPoint = (GameObject)Instantiate (playerAugmonModel, playerAugmonModel.transform.position, playerAugmonModel.transform.rotation);
+		playerAugmonModel.name = "PlayerAugmon";
+		
+		playerAugmonModel.renderer.enabled = true;
+		
 		profile = GameObject.Find("ProfileImage").GetComponent<Image>();
 		header = GameObject.Find ("Header").GetComponent<Text>();
 		subtitle = GameObject.Find ("Subtitle").GetComponent<Text>();

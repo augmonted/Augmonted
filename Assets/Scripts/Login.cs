@@ -19,13 +19,13 @@ public class Login : MonoBehaviour {
 		Debug.Log("Login: Awake");
 		Debug.Log("FB.IsLoggedIn value: " + FacebookManager.Instance().IsLogged());
 		if (FacebookManager.Instance ().IsLogged ())
-			Application.LoadLevel ("user");
+			Application.LoadLevel ("augmon_select");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (FacebookManager.Instance ().IsLogged ())
-			Application.LoadLevel ("user");
+			Application.LoadLevel ("augmon_select");
 		else {
 			// handle errors here
 		}

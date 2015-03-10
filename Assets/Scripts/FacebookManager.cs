@@ -21,6 +21,7 @@ public class FacebookManager : MonoBehaviour {
 	public Sprite ProfilePic;
 	public string FB_ID;
 	public int user_ID;
+	public string playerAugmon;
 	
 	private Dictionary<string, string> profile;
 	
