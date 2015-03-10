@@ -48,6 +48,12 @@ public class Util : ScriptableObject
         {
             profile["first_name"] = (string)nameH;
         }
+        
+		if (responseObject.TryGetValue("id", out nameH))
+		{
+			profile["id"] = (string)nameH;
+		}
+        
         return profile;
     }
     
