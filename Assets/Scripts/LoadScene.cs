@@ -17,6 +17,9 @@ public class LoadScene : MonoBehaviour {
 			StartCoroutine ("Logout");
 		}
 
+		AppMaster.currentScene = scene;
+		AppMaster.Instance ().callHit ();
+
 		Application.LoadLevel (scene);
 	}
 

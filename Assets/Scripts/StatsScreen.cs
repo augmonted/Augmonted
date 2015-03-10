@@ -78,23 +78,25 @@ public class StatsScreen : MonoBehaviour {
 			augmonbuttons[i].ButtonText.fontStyle = FontStyle.Bold;
 			switch (augmonbuttons[i].name){
 				case "Battle":
-					augmonbuttons[i].ButtonText.text = "Level: " + augmon.Lvl;
+					augmonbuttons[i].ButtonText.text = "Name: " + augmon.Name;
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Stats":
-					augmonbuttons[i].ButtonText.text = "Attack: " + augmon.Attack;
+					augmonbuttons[i].ButtonText.text = "Level: " + augmon.Lvl;
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Feed":
-					augmonbuttons[i].ButtonText.text = "Def: " + augmon.Defense;
+					augmonbuttons[i].ButtonText.text = "Attack: " + augmon.Attack;
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Steps":
+					augmonbuttons[i].ButtonText.text = "Def: " + augmon.Defense;
 					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Logout":
-					augmonbuttons[i].ButtonText.text = "ID: " + augmon.ID;
+					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
+					//augmonbuttons[i].ButtonText.text = "ID: " + augmon.ID;
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 			}

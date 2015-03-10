@@ -32,6 +32,8 @@ public class Login : MonoBehaviour {
 	}
 
 	public void CallFBLogin() {
+		AppMaster.currentScene = "user";
+		AppMaster.Instance ().callHit ();
 		FacebookManager.Instance ().callLogin ();
 	}
 	//pattern matching
@@ -68,6 +70,9 @@ public class Login : MonoBehaviour {
 				FacebookManager.Instance ().ProfilePic = Sprite.Create(tex
 				                                                       , new Rect(0, 0, 128, 128), new Vector2(0, 0));
 
+
+				AppMaster.currentScene = "user";
+				AppMaster.Instance ().callHit ();
 				Application.LoadLevel ("user");
 			} else {
 				Debug.Log("Failed Login");
