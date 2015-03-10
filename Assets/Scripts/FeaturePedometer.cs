@@ -40,9 +40,7 @@ public class FeaturePedometer : MonoBehaviour
 		}
 		avgPed = currPed;
 		calculateDistance(stepCnt);
-		
-		Debug.Log("Pedometer: Update");
-		Debug.Log ("Step count: " + stepCnt);
+
 	}
 	
 	public int calculateDistance(int cnt)

@@ -75,21 +75,27 @@ public class StatsScreen : MonoBehaviour {
 		Augmon augmon = database.GetAugmonInfo(FacebookManager.Instance ().user_ID);
 		for (int i = 0; i<5; i++) {
 			RectTransform trans = augmonbuttons[i].ButtonText.rectTransform;
+			augmonbuttons[i].ButtonText.fontStyle = FontStyle.Bold;
 			switch (augmonbuttons[i].name){
 				case "Battle":
-					augmonbuttons[i].ButtonText.text = "Augmon Name: " + augmon.ID;
+					augmonbuttons[i].ButtonText.text = "Level: " + augmon.Lvl;
+					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Stats":
 					augmonbuttons[i].ButtonText.text = "Attack: " + augmon.Attack;
+					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Feed":
 					augmonbuttons[i].ButtonText.text = "Def: " + augmon.Defense;
+					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Steps":
 					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
+					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Logout":
-					augmonbuttons[i].ButtonText.text = "";
+					augmonbuttons[i].ButtonText.text = "ID: " + augmon.ID;
+					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 			}
 			augmonbuttons[i].RippleScript.enabled = false;
@@ -100,7 +106,8 @@ public class StatsScreen : MonoBehaviour {
 
 	private void redisplayStats(){
 		for (int i = 0; i<5; i++) {
-			Debug.Log (augmonbuttons[i].name);
+			augmonbuttons[i].ButtonText.rectTransform.anchoredPosition = new Vector2(28,0);
+			augmonbuttons[i].ButtonText.fontStyle = FontStyle.Normal;
 			switch (augmonbuttons[i].name){
 			case "Battle":
 				augmonbuttons[i].ButtonText.text = "Battle";

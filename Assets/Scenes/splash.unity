@@ -399,6 +399,7 @@ MonoBehaviour:
   Gender: 
   ProfilePic: {fileID: 0}
   FB_ID: 
+  user_ID: 0
 --- !u!224 &2106216963
 RectTransform:
   m_ObjectHideFlags: 0

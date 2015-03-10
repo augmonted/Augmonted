@@ -12,7 +12,6 @@ public class PedometerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("PedometerScript in scene: " + Application.loadedLevelName);
 		fp.UpdateStep();
 	}
 }
