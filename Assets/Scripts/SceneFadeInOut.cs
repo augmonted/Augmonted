@@ -38,7 +38,7 @@ public class SceneFadeInOut : MonoBehaviour
 	void FadeToBlack ()
 	{
 		// Lerp the colour of the texture between itself and black.
-		raw.color = Color.Lerp(raw.color, Color.black, fadeSpeed * Time.deltaTime);
+		raw.color = Color.Lerp(raw.color, Color.white, fadeSpeed * Time.deltaTime);
 	}
 	
 	
@@ -67,10 +67,5 @@ public class SceneFadeInOut : MonoBehaviour
 		
 		// Start fading towards black.
 		FadeToBlack();
-		
-		// If the screen is almost black...
-		if(raw.color.a >= 0.95f)
-			// ... reload the level.
-			Application.LoadLevel(0);
 	}
 }

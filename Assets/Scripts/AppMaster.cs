@@ -15,9 +15,6 @@ public class AppMaster : MonoBehaviour {
 
 	public GoogleAnalyticsV3 googleAnalytics;
 
-	// access this anywhere using AppMaster.AM.name
-	public string name = "augmon";
-
 	public static AppMaster Instance() {
 		return instance;
 	}
@@ -50,19 +47,5 @@ public class AppMaster : MonoBehaviour {
 		if (googleAnalytics != null) {
 			googleAnalytics.LogScreen (currentScene);
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		Debug.Log ("AppMaster: Update");
-		Debug.Log ("AppMaster in scene: " + Application.loadedLevelName);
-
-		//if (googleAnalytics != null) {
-		//	googleAnalytics.LogScreen (currentScene);
-		//}
-
-		// Couldn't use back button logic here because the update function here doesn't
-		// get called in other scenes for some reason
-		// refer to _BackButtonManager GameObject and BackButton.cs to handle back button press
 	}
 }

@@ -6,6 +6,7 @@ public class SplashScreen : MonoBehaviour {
 	// edit these values in unity editor
 	public float timer;
 	public string levelToLoad;
+	public SceneFadeInOut SceneFader;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,8 @@ public class SplashScreen : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+		if (timer - Time.time < 0.5f) {
+			SceneFader.EndScene ();
+		}
 	}
 }

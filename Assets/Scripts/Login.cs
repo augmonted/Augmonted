@@ -19,13 +19,13 @@ public class Login : MonoBehaviour {
 		Debug.Log("Login: Awake");
 		Debug.Log("FB.IsLoggedIn value: " + FacebookManager.Instance().IsLogged());
 		if (FacebookManager.Instance ().IsLogged ())
-			Application.LoadLevel ("user");
+			Application.LoadLevel ("augmon_select");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (FacebookManager.Instance ().IsLogged ())
-			Application.LoadLevel ("user");
+			Application.LoadLevel ("augmon_select");
 		else {
 			// handle errors here
 		}
@@ -68,7 +68,7 @@ public class Login : MonoBehaviour {
 			if(FacebookManager.Instance ().user_ID > -1){
 				Texture2D tex = Resources.Load("profile") as Texture2D;
 				FacebookManager.Instance ().ProfilePic = Sprite.Create(tex
-				                                                       , new Rect(0, 0, 128, 128), new Vector2(0, 0));
+				                         , new Rect(0, 0, 336, 336), new Vector2(0, 0));
 
 
 				AppMaster.currentScene = "user";
