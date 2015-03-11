@@ -15,6 +15,9 @@ public class CharacterSelect : MonoBehaviour {
 		character2Glow.renderer.enabled = false;
 		character3Glow.renderer.enabled = false;
 		character4Glow.renderer.enabled = false;
+		
+		// if user select without choosing a different augmon 
+		FacebookManager.Instance().playerAugmon = "bird";
 	}
 	
 	// Update is called once per frame

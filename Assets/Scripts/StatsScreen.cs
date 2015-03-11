@@ -91,12 +91,12 @@ public class StatsScreen : MonoBehaviour {
 					break;
 				case "Steps":
 					augmonbuttons[i].ButtonText.text = "Def: " + augmon.Defense;
-					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Logout":
-					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
+					//augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
 					//augmonbuttons[i].ButtonText.text = "ID: " + augmon.ID;
+					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 			}
