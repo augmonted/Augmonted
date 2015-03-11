@@ -360,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 2
   levelToLoad: login
-  SceneFader: {fileID: 0}
+  SceneFader: {fileID: 1778507192}
 --- !u!1 &1088392743
 GameObject:
   m_ObjectHideFlags: 0
