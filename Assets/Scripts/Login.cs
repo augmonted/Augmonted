@@ -68,7 +68,7 @@ public class Login : MonoBehaviour {
 			if(FacebookManager.Instance ().user_ID > -1){
 				Texture2D tex = Resources.Load("profile") as Texture2D;
 				FacebookManager.Instance ().ProfilePic = Sprite.Create(tex
-				                                                       , new Rect(0, 0, 128, 128), new Vector2(0, 0));
+				                         , new Rect(0, 0, 336, 336), new Vector2(0, 0));
 
 
 				AppMaster.currentScene = "user";
