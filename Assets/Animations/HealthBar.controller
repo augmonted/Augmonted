@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ButtonPanel
+  m_Name: HealthBar
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110790980}
+    m_StateMachine: {fileID: 110742434}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -20,47 +20,47 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &110255406
+--- !u!1102 &110241010
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: usermenuslideout
+  m_Name: healthbarSlideIn
   m_Speed: -1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 827318c5890da7c4296f82612b1a5f8c, type: 2}
-  m_ParentStateMachine: {fileID: 110790980}
-  m_Position: {x: 48, y: 96, z: 0}
+  - {fileID: 7400000, guid: 085e63f976c0fab428d8fbeb7f8b6b5c, type: 2}
+  m_ParentStateMachine: {fileID: 110742434}
+  m_Position: {x: 72, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110290980
+--- !u!1102 &110242434
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: usermenuslide
+  m_Name: healthbarSlideOut
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 827318c5890da7c4296f82612b1a5f8c, type: 2}
-  m_ParentStateMachine: {fileID: 110790980}
-  m_Position: {x: 48, y: 48, z: 0}
+  - {fileID: 7400000, guid: 085e63f976c0fab428d8fbeb7f8b6b5c, type: 2}
+  m_ParentStateMachine: {fileID: 110742434}
+  m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110790980
+--- !u!1107 &110742434
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110290980}
+  m_DefaultState: {fileID: 110242434}
   m_States:
-  - {fileID: 110290980}
-  - {fileID: 110255406}
+  - {fileID: 110242434}
+  - {fileID: 110241010}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}

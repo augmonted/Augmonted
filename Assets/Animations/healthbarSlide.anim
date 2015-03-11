@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: usermenuslide
+  m_Name: healthbarSlide
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -19,14 +19,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -161
-        inSlope: 342
-        outSlope: 342
+        value: 242.600006
+        inSlope: -966.400024
+        outSlope: -966.400024
         tangentMode: 10
       - time: .5
-        value: 10
-        inSlope: 342
-        outSlope: 342
+        value: -240.600006
+        inSlope: -966.400024
+        outSlope: -966.400024
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -71,14 +71,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -161
-        inSlope: 342
-        outSlope: 342
+        value: 242.600006
+        inSlope: -966.400024
+        outSlope: -966.400024
         tangentMode: 10
       - time: .5
-        value: 10
-        inSlope: 342
-        outSlope: 342
+        value: -240.600006
+        inSlope: -966.400024
+        outSlope: -966.400024
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

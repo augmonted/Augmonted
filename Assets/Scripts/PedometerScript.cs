@@ -7,7 +7,9 @@ public class PedometerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fp = FeaturePedometer.Instance();
+		if (fp != null) {
+			fp = FeaturePedometer.Instance ();
+		}
 	}
 	
 	// Update is called once per frame
