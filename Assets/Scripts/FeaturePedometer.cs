@@ -16,7 +16,7 @@ public class FeaturePedometer : MonoBehaviour
 	private float avgPed;
 	
 	void Awake() {
-		Debug.Log("FeaturePedometer: Awake");
+		Debug.Log("FEATUREPEDOMETER:AWAKE");
 		
 		if (instance == null)
 			instance = this;
