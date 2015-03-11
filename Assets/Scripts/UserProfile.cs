@@ -12,7 +12,12 @@ public class UserProfile : MonoBehaviour {
 	Text header;
 	Text subtitle;
 	string name;
+	string augmonSelected;
 	GameObject augmonModel;
+	GameObject bird;
+	GameObject bunny;
+	GameObject cat;
+	GameObject dog;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +34,39 @@ public class UserProfile : MonoBehaviour {
 		profile = GameObject.Find("ProfileImage").GetComponent<Image>();
 		header = GameObject.Find ("Header").GetComponent<Text>();
 		subtitle = GameObject.Find ("Subtitle").GetComponent<Text>();
+		augmonSelected = FacebookManager.Instance().playerAugmon;
 		augmonModel = GameObject.Find ("AugmonModel");
+		//augmonModel = Instantiate(Resources.Load("Prefabs/" + FacebookManager.Instance().playerAugmon, typeof(GameObject))) as GameObject;
+		augmonModel.SetActive(false);
+		bird = GameObject.Find ("bird");
+		bunny = GameObject.Find ("bunny");
+		cat = GameObject.Find ("cat");
+		dog = GameObject.Find ("dog");
+		
+		if(augmonSelected == "bird") {
+			bird.SetActive(true);
+			bunny.SetActive(false);
+			cat.SetActive(false);
+			dog.SetActive(false);
+		}
+		else if(augmonSelected == "bunny") {
+			bird.SetActive(false);
+			bunny.SetActive(true);
+			cat.SetActive(false);
+			dog.SetActive(false);
+		}
+		else if(augmonSelected == "cat") {
+			bird.SetActive(false);
+			bunny.SetActive(false);
+			cat.SetActive(true);
+			dog.SetActive(false);
+		}
+		else if(augmonSelected == "dog") {
+			bird.SetActive(false);
+			bunny.SetActive(false);
+			cat.SetActive(false);
+			dog.SetActive(true);
+		}
 	}
 	
 	// Update is called once per frame
@@ -37,7 +74,5 @@ public class UserProfile : MonoBehaviour {
 		profile.sprite = FacebookManager.Instance().ProfilePic;
 		header.text = FacebookManager.Instance().FullName;
 		subtitle.text = "Step Count: " + FeaturePedometer.Instance().stepCnt.ToString();
-		augmonModel = Instantiate(Resources.Load("Prefabs/" + FacebookManager.Instance().playerAugmon, typeof(GameObject))) as GameObject;
-		
 	}
 }
