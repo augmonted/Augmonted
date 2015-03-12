@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour {
 	private bool isClosed = true;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		DAO database = new DAO ();
 		Pedometer ped = database.GetPedometerInfo (FacebookManager.Instance ().user_ID);
 		pedometersteps = ped.Total_step;
@@ -24,6 +24,7 @@ public class HealthBar : MonoBehaviour {
 		DAO database = new DAO ();
 		Pedometer ped = database.GetPedometerInfo (FacebookManager.Instance ().user_ID);
 		ped.Total_step += FeaturePedometer.Instance ().stepCnt;
+		pedometersteps += FeaturePedometer.Instance ().stepCnt;
 		Augmon aug = database.GetAugmonInfo (FacebookManager.Instance ().user_ID);
 		aug.Lvl += (int)(FeaturePedometer.Instance ().stepCnt / 100);
 		FeaturePedometer.Instance ().stepCnt = 0;
@@ -34,16 +35,12 @@ public class HealthBar : MonoBehaviour {
 
 	public void stepsOnClick(){
 		anim.enabled = true;
+		registerSteps ();
 		if (isClosed) {
-			//open
 			anim.Play ("healthbarSlideOut");
-			registerSteps ();
 			isClosed = false;
 		} else {
 			anim.Play ("healthbarSlideIn");
-			DAO database = new DAO ();
-			Pedometer ped = database.GetPedometerInfo (FacebookManager.Instance ().user_ID);
-			pedometersteps = ped.Total_step;
 			isClosed = true;
 		}
 	}
