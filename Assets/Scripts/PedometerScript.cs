@@ -14,8 +14,6 @@ public class PedometerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (fp != null) {
-			fp.UpdateStep ();
-		}
+		fp.UpdateStep ();
 	}
 }
