@@ -8,6 +8,7 @@ using UnityEngine.UI;
  */
 public class UserProfile : MonoBehaviour {
 
+	public HealthBar HealthBarScript;
 	Image profile;
 	Text header;
 	Text subtitle;
@@ -73,6 +74,6 @@ public class UserProfile : MonoBehaviour {
 	void Update () {
 		profile.sprite = FacebookManager.Instance().ProfilePic;
 		header.text = FacebookManager.Instance().FullName;
-		subtitle.text = "Step Count: " + FeaturePedometer.Instance().stepCnt.ToString();
+		subtitle.text = "Step Count: " + ((int)HealthBarScript.pedometersteps + FeaturePedometer.Instance ().stepCnt);
 	}
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class PedometerScript : MonoBehaviour {
 
 	FeaturePedometer fp = null;
+	public HealthBar healthbarscript;
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +15,6 @@ public class PedometerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (fp != null) {
-			fp.UpdateStep ();
-		}
+		fp.UpdateStep ();
 	}
 }

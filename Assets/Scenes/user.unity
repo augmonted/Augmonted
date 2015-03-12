@@ -870,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87263127ec5a15f44b48b0c9db9a997e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbarscript: {fileID: 341648019}
 --- !u!4 &412395754
 Transform:
   m_ObjectHideFlags: 0
@@ -1232,7 +1233,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .172549024, g: .243137255, b: .313725501, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1240,7 +1241,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .300000012
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1266,6 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79a6f851d25ad542bad0005271f75e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBarScript: {fileID: 341648019}
 --- !u!1 &732162339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,7 +2734,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Play with your augmon!
+  m_Text: Play with your Augmon!
 --- !u!222 &1399042388
 CanvasRenderer:
   m_ObjectHideFlags: 0

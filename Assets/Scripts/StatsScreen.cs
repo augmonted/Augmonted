@@ -78,7 +78,7 @@ public class StatsScreen : MonoBehaviour {
 			augmonbuttons[i].ButtonText.fontStyle = FontStyle.Bold;
 			switch (augmonbuttons[i].name){
 				case "Battle":
-					augmonbuttons[i].ButtonText.text = "Name: " + augmon.Name;
+					augmonbuttons[i].ButtonText.text = "Name: " + augmon.ID;//augmon.Name;
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Stats":
