@@ -71,9 +71,9 @@ public class Login : MonoBehaviour {
 				                         , new Rect(0, 0, 336, 336), new Vector2(0, 0));
 
 
-				AppMaster.currentScene = "user";
+				AppMaster.currentScene = "augmon_select";
 				AppMaster.Instance ().callHit ();
-				Application.LoadLevel ("user");
+				Application.LoadLevel ("augmon_select");
 			} else {
 				Debug.Log("Failed Login");
 			}

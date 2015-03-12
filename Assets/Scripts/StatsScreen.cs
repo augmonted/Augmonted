@@ -78,7 +78,7 @@ public class StatsScreen : MonoBehaviour {
 			augmonbuttons[i].ButtonText.fontStyle = FontStyle.Bold;
 			switch (augmonbuttons[i].name){
 				case "Battle":
-					augmonbuttons[i].ButtonText.text = "Name: " + augmon.ID;//augmon.Name;
+					augmonbuttons[i].ButtonText.text = "Name: " + FacebookManager.Instance().playerAugmon;
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Stats":
@@ -94,8 +94,6 @@ public class StatsScreen : MonoBehaviour {
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
 				case "Logout":
-					//augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
-					//augmonbuttons[i].ButtonText.text = "ID: " + augmon.ID;
 					augmonbuttons[i].ButtonText.text = "Health: " + augmon.Happiness + "%";
 					trans.anchoredPosition = new Vector2(-20,0);
 					break;
